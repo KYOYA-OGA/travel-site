@@ -17,11 +17,10 @@ class ClientArea {
   }
 
   sendRequest() {
-    axios
-      .post(
-        'https://brave-banach-231383.netlify.app/.netlify/functions/secret-area',
-        { password: this.field.value }
-      )
+    Axios.post(
+      'https://brave-banach-231383.netlify.app/.netlify/functions/secret-area',
+      { password: this.field.value }
+    )
       .then((response) => {
         this.form.remove();
         this.contentArea.innerHTML = response.data;
