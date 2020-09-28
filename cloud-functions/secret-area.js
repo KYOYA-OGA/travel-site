@@ -1,4 +1,8 @@
 exports.handler = function (event, context, callback) {
+  const secretContent = `
+  <h3>Welcome to the secret area</h3>
+  <p>Here we can tell you that sky is <strong>blue</strong>, two plus two equals four. </p>  
+  `;
   let body;
 
   if (event.body) {
@@ -7,10 +11,10 @@ exports.handler = function (event, context, callback) {
     body = {};
   }
 
-  if (body.password) {
+  if (body.password == 'javascript') {
     callback(null, {
       statusCode: 200,
-      body: 'Welcome to the super secret area',
+      body: secretContent,
     });
   } else {
     callback(null, {
